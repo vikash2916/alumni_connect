@@ -1,0 +1,540 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #f8fafc;        /* Main Light Canvas Background */
+  --bg-card: #ffffff;        /* White Clean Card Surface */
+  --bg-card-hover: #f1f5f9;  /* Soft Hover Surface */
+  --bg-subtle: #f1f5f9;      /* Subtle Neutral Container */
+  --border-card: #e2e8f0;    /* Crisp Card Border */
+  --border-strong: #cbd5e1;  /* Emphasized Border */
+  --border-glass: #e2e8f0;   /* Light Glass Border */
+
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #475569;
+  --sidebar-hover-bg: #f8fafc;
+  --sidebar-hover-text: #0f172a;
+  --sidebar-active-bg: #e0f2fe;
+  --sidebar-active-border: #7dd3fc;
+  --sidebar-active-text: #0284c7;
+  --sidebar-search-bg: #ffffff;
+
+  --header-bg: #ffffff;
+
+  --primary: #0091ff;
+  --primary-hover: #0077d6;
+  --primary-subtle: rgba(0, 145, 255, 0.08);
+
+  --accent-purple: #7c3aed;
+  --accent-emerald: #059669;
+  --accent-amber: #d97706;
+  --accent-rose: #dc2626;
+
+  --text-main: #0f172a;      /* Dark Slate Main Heading/Text */
+  --text-muted: #475569;     /* Medium Slate Description */
+  --text-subtle: #64748b;    /* Muted Labels & Captions */
+
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 4px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* ========================================================
+   DARK MODE THEME OVERRIDES ([data-theme="dark"])
+   Accurate BIT Information Portal Theme: Premium Slate-Blue Charcoal
+======================================================== */
+[data-theme="dark"] {
+  --bg-dark: #0c1424;        /* Rich Slate-Blue Midnight Canvas */
+  --bg-card: #121c30;        /* Elegant Dark Slate-Blue Card Surface */
+  --bg-card-hover: #17243c;  /* Soft Slate-Blue Hover Surface */
+  --bg-subtle: #0c1424;      /* Seamless Background Container */
+  --border-card: #1c2b42;    /* Crisp Slate-Blue Border */
+  --border-strong: #283c5a;  /* Emphasized Slate-Blue Border */
+  --border-glass: #1c2b42;   /* Glass Border */
+
+  --sidebar-bg: #0c1424;
+  --sidebar-text: #8da2be;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.04);
+  --sidebar-hover-text: #f1f5f9;
+  --sidebar-active-bg: rgba(0, 163, 255, 0.08);
+  --sidebar-active-border: rgba(0, 163, 255, 0.35);
+  --sidebar-active-text: #00a3ff;
+  --sidebar-search-bg: #080d19;
+
+  --header-bg: #0c1424;
+
+  --primary: #0091ff;
+  --primary-hover: #0077d6;
+  --primary-subtle: rgba(0, 145, 255, 0.15);
+
+  --text-main: #f1f5f9;      /* Crisp Silver-White Slate Text */
+  --text-muted: #8da2be;     /* Medium Slate-Blue Description */
+  --text-subtle: #5a6e88;    /* Muted Labels & Section Headers */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+/* Card Containers */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.glass-panel-glow {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.4);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-card);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+  color: var(--text-main);
+}
+
+.btn-danger {
+  background: var(--accent-rose);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+.btn-sm {
+  padding: 0.38rem 0.85rem;
+  font-size: 0.825rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.725rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-cyan {
+  background: #eff6ff;
+  color: #0284c7;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-emerald {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-amber {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.badge-rose {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.badge-purple {
+  background: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+}
+
+[data-theme="dark"] .badge-cyan {
+  background: #1e3a8a;
+  color: #38bdf8;
+  border-color: #1d4ed8;
+}
+
+[data-theme="dark"] .badge-emerald {
+  background: #064e3b;
+  color: #34d399;
+  border-color: #047857;
+}
+
+[data-theme="dark"] .badge-amber {
+  background: #78350f;
+  color: #fbbf24;
+  border-color: #b45309;
+}
+
+/* Form Inputs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 13, 22, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-lg);
+  color: var(--text-main);
+  margin: auto;
+}
+
+/* Dark Mode Comprehensive Component Rules (BIT Information Portal Style) */
+[data-theme="dark"] header,
+[data-theme="dark"] aside,
+[data-theme="dark"] footer {
+  background-color: #0c1424 !important;
+  border-color: #1c2b42 !important;
+}
+
+[data-theme="dark"] section {
+  border-color: #1c2b42 !important;
+}
+
+[data-theme="dark"] .glass-panel,
+[data-theme="dark"] .modal-content {
+  background-color: #121c30 !important;
+  border-color: #1c2b42 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] div[style*="background: #ffffff"],
+[data-theme="dark"] div[style*="background: rgb(255, 255, 255)"],
+[data-theme="dark"] div[style*="background: #f8fafc"],
+[data-theme="dark"] div[style*="background: rgb(248, 250, 252)"] {
+  background-color: #121c30 !important;
+  border-color: #1c2b42 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] div[style*="background: linear-gradient"],
+[data-theme="dark"] div[style*="background: #eff6ff"],
+[data-theme="dark"] div[style*="background: #f5f3ff"],
+[data-theme="dark"] div[style*="background: #f3e8ff"] {
+  background: #142238 !important;
+  border-color: #1c2b42 !important;
+}
+
+[data-theme="dark"] table th,
+[data-theme="dark"] table td {
+  border-color: #1c2b42 !important;
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] table td span[style*="color: #0284c7"] {
+  color: #00a3ff !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] span:not(.badge) {
+  color: #8da2be;
+}
+
+[data-theme="dark"] input#global-header-search,
+[data-theme="dark"] input.sidebar-search-input,
+[data-theme="dark"] .sidebar-search-input {
+  background-color: #080d19 !important;
+  color: #f1f5f9 !important;
+  border-color: #1c2b42 !important;
+}
+
+/* Sidebar Custom Hover & Active States in Dark Mode */
+[data-theme="dark"] .sidebar-nav-item {
+  color: #8da2be !important;
+}
+
+[data-theme="dark"] .sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .sidebar-nav-item.active {
+  background: rgba(0, 163, 255, 0.08) !important;
+  border-color: rgba(0, 163, 255, 0.35) !important;
+  color: #00a3ff !important;
+}
+
+[data-theme="dark"] .sidebar-nav-item.active svg {
+  color: #00a3ff !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+/* ========================================================
+   Item 12: SKELETON SHIMMER ANIMATION
+======================================================== */
+@keyframes skeletonPulse {
+  0% {
+    opacity: 0.6;
+    background-color: var(--bg-subtle);
+  }
+  50% {
+    opacity: 1;
+    background-color: var(--border-card);
+  }
+  100% {
+    opacity: 0.6;
+    background-color: var(--bg-subtle);
+  }
+}
+
+.skeleton-pulse {
+  animation: skeletonPulse 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ========================================================
+   Item 13: FORM ERROR STATES & VALIDATION STYLING
+======================================================== */
+.form-input-error,
+.form-select-error,
+.form-textarea-error,
+.form-input.error {
+  border-color: var(--accent-rose) !important;
+  background-color: rgba(220, 38, 38, 0.03) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+}
+
+.form-error-text {
+  font-size: 0.775rem;
+  color: var(--accent-rose);
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 500;
+}
+
+.form-error-text::before {
+  content: "⚠";
+  font-size: 0.85rem;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.shake-animation {
+  animation: shake 0.35s ease-in-out;
+}
+
+/* ========================================================
+   Item 20: COMPRESSED & OPTIMIZED IMAGE UTILITIES
+======================================================== */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.img-avatar-opt {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+}
+
+.img-thumbnail-opt {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+/* ========================================================
+   Item 10 & 11: RESPONSIVE BREAKPOINTS (768px & 480px)
+======================================================== */
+@media (max-width: 768px) {
+  /* Show Sticky Mobile CTA on tablet & mobile */
+  .sticky-mobile-cta {
+    display: flex !important;
+  }
+
+  /* Compact padding on mobile */
+  .modal-content {
+    margin: 1rem;
+    padding: 1.25rem !important;
+    max-height: 85vh;
+  }
+
+  .glass-panel {
+    padding: 1.25rem !important;
+  }
+
+  /* Footer stack on mobile */
+  footer .footer-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    text-align: left !important;
+  }
+
+  /* Form layouts stack on mobile */
+  .form-row {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.65rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
